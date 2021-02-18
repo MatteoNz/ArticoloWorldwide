@@ -4,6 +4,13 @@ $Page1LeftColor: black;
 $Page1RightColor: black;
 $Page1NextPageColor: white;
 
+// FUNCTIONS
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // STYLING
 * {
   margin: 0;
@@ -22,9 +29,7 @@ body {
 
 .page-1 {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexCenter();
 
   & > div {
     margin: 0 10px;
@@ -143,5 +148,38 @@ body {
 }
 
 .page-2 {
+  @include flexCenter();
+  justify-content: space-evenly;
 
+  .left {
+    width: 30vw;
+
+    select {
+      width: inherit;
+      border-radius: 20px;
+      padding: 5px;
+      transform: translateY(50%);
+    }
+
+    .article-content {
+      background-color: white;
+      height: 80vh;
+      border-radius: 0 0 10px 10px;
+      text-align: center;
+      padding: 20px;
+    }
+  }
+
+  .right {
+    font-size: 2rem;
+    text-align: center;
+
+    & > * {
+      margin: 10px 0;
+    }
+
+    img {
+      height: 25vh;
+    }
+  }
 }

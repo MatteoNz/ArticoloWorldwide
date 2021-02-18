@@ -22,12 +22,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .page-1 > div {
@@ -190,5 +190,53 @@ body {
 .page-1 .next-page:hover .next-page-inner {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
+}
+
+.page-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.page-2 .left {
+  width: 30vw;
+}
+
+.page-2 .left select {
+  width: inherit;
+  border-radius: 20px;
+  padding: 5px;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+
+.page-2 .left .article-content {
+  background-color: white;
+  height: 80vh;
+  border-radius: 0 0 10px 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.page-2 .right {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.page-2 .right > * {
+  margin: 10px 0;
+}
+
+.page-2 .right img {
+  height: 25vh;
 }
 /*# sourceMappingURL=main.css.map */
