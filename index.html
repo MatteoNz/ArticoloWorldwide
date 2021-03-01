@@ -12,17 +12,18 @@
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js" integrity="sha512-tBzZQxySO5q5lqwLWfu8Q+o4VkTcRGOeQGVQ0ueJga4A1RKuzmAu5HXDOXLEjpbKyV7ow9ympVoa6wZLEzRzDg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mapael/2.2.0/js/jquery.mapael.min.js" integrity="sha512-+iXNzFArGbqxdmbClb1f6MKIiZASR7H8ep6rS1ZFn2I7tRX400ApvS0nsG8/v1+F7RoGU2shMDTl/gZ5lZF1iw==" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="page page-1">
-      <div class="left">
+      <div class="left animation">
         <h2>Tavola periodica</h2>
         <h3>della</h3>
         <h1>Costituzione italiana</h1>
       </div>
 
-      <div class="right">
+      <div class="right animation">
         <h3>Articolo N&deg;X</h3>
         <div class="underline"></div>
         <img src="assets/periodic-table.png" />
@@ -71,5 +72,16 @@
         <img src="assets/Ue-flag.png">
       </div>
     </div>
+
+    <div class="page page-3">
+      <div class="map-container">
+        <div class="map">impossibile caricare la mappa...</div>
+      </div>
+
+
+    </div>
   </body>
+  <script src="articles.json"></script>
+  <script src="ue_map.js"></script>
+  <script src="main.js"></script>
 </html>
