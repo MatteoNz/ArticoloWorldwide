@@ -1,17 +1,12 @@
-// CONSTANTS
 $background: #d6bc83;
-$Page1LeftColor: black;
-$Page1RightColor: black;
-$Page1NextPageColor: white;
 
-// FUNCTIONS
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@mixin positionCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-// STYLING
 * {
   margin: 0;
   padding: 0;
@@ -21,172 +16,136 @@ $Page1NextPageColor: white;
 
 body {
   background-color: $background;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .page {
+  position: relative;
   height: 100vh;
 }
 
 .page-1 {
-  position: relative;
-  @include flexCenter();
+  .page1-inner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 
-  & > div {
-    margin: 0 10px;
-  }
+    height: 80%;
 
-  .left {
-    font-family: "Pacifico", Georgia, "Times New Roman", Times, serif;
-    font-size: 2rem;
-    text-align: center;
-    position: relative;
-    color: $Page1LeftColor;
-
-    &::after {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: $background;
-      animation: appear 2s ease-out 2.5s forwards;
-    }
-
-    @keyframes appear {
-      from {
-        height: 100%;
-      }
-      to {
-        height: 0;
-      }
-    }
-  }
-
-  .right {
-    height: 50vh;
-    animation: slide 2s ease-in-out forwards;
-
-    @keyframes slide {
-      from {
-        transform: translateX(-100vw);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
-
-    h3 {
-      font-family: Verdana;
-      font-size: 1.3rem;
-      font-style: italic;
+    .title {
+      font-size: 1.5rem;
+      font-family: "Pacifico", Georgia, "Times New Roman", Times, serif;
       text-align: center;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: $background;
+        // animation: appear 2s ease-out 2.5s forwards;
+      }
+
+      @keyframes appear {
+        from {
+          height: 100%;
+        }
+        to {
+          height: 0;
+        }
+      }
     }
 
-    .underline {
-      background: $Page1RightColor;
-      border-radius: 20px;
-      width: 0px;
-      height: 3px;
-      margin: 0 auto;
-      transition: all 0.3s;
-    }
+    .image {
+      // animation: slide 2s ease-in-out forwards;
 
-    &:hover .underline {
-      margin-top: 10px;
-      width: 60%;
-    }
+      @keyframes slide {
+        from {
+          transform: translateX(-100vw);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
 
-    img {
-      height: inherit;
-      transition: transform 0.5s ease-out;
-    }
+      p {
+        text-align: center;
+        font-size: 1.2rem;
+        position: relative;
+        font-style: italic;
+        transition: all 1s;
 
-    &:hover img {
-      transform: scale(0.85);
+        &::after {
+          content: "";
+          width: 0;
+          height: 3px;
+          background-color: black;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: all 1s;
+        }
+      }
+
+      &:hover {
+        p {
+          font-weight: bold;
+          letter-spacing: 0.25em;
+        }
+
+        p::after {
+          width: 70%;
+        }
+
+        img {
+          transform: scale(0.85);
+        }
+      }
+
+      img {
+        max-width: 600px;
+        width: 90vw;
+        transition: all 1s;
+      }
     }
   }
 
   .next-page {
     position: absolute;
-    bottom: 5%;
+    bottom: 1%;
     left: 50%;
     transform: translateX(-50%);
-    height: 2.5vh;
-    text-align: center;
-    color: $Page1NextPageColor;
-    transition: all 0.3s ease-in-out;
-
-    .next-page-inner {
-      height: inherit;
-      animation: jumping 0.5s ease-in-out 5s alternate infinite;
-    }
-
-    @keyframes jumping {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(-50%);
-      }
-    }
+    color: white;
 
     svg {
-      height: inherit;
-      fill: $Page1NextPageColor;
+      width: 25px;
+      fill: white;
+    }
+
+    .next-page-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     &:hover {
       transform: translateX(-50%) scale(1.3);
-      cursor: pointer;
-    }
-
-    &:hover .next-page-inner {
-      animation-play-state: paused;
     }
   }
 }
 
-.page-2 {
-  @include flexCenter();
-  justify-content: space-evenly;
-
-  .left {
-    width: 30vw;
-
-    select {
-      width: inherit;
-      border-radius: 20px;
-      padding: 5px;
-      transform: translateY(50%);
-    }
-
-    .article-content {
-      background-color: white;
-      height: 80vh;
-      border-radius: 0 0 10px 10px;
-      text-align: center;
-      padding: 20px;
-    }
+@media (min-width: 870px) {
+  html {
+    font-size: 20px;
   }
 
-  .right {
-    font-size: 2rem;
-    text-align: center;
-
-    & > * {
-      margin: 10px 0;
-    }
-
-    img {
-      height: 25vh;
-    }
+  .next-page-inner {
+    flex-direction: column;
   }
-}
-
-.page-3 {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
