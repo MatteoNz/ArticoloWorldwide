@@ -15,8 +15,20 @@ body {
   overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: #a38f64;
+}
+
+body::-webkit-scrollbar-thumb {
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #5f533a;
+}
+
 .page {
   position: relative;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -49,6 +61,8 @@ body {
   bottom: 0;
   left: 0;
   background-color: #d6bc83;
+  -webkit-animation: appear 2s ease-out 2.5s forwards;
+          animation: appear 2s ease-out 2.5s forwards;
 }
 
 @-webkit-keyframes appear {
@@ -67,6 +81,11 @@ body {
   to {
     height: 0;
   }
+}
+
+.page-1 .page1-inner .image {
+  -webkit-animation: slide 2s ease-in-out forwards;
+          animation: slide 2s ease-in-out forwards;
 }
 
 @-webkit-keyframes slide {
@@ -142,6 +161,15 @@ body {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   color: white;
+  cursor: pointer;
+}
+
+.page-1 .next-page:active {
+  color: black;
+}
+
+.page-1 .next-page:active svg {
+  fill: black;
 }
 
 .page-1 .next-page svg {
